@@ -35,8 +35,8 @@ jobs:
           script_stop: true
           script: |
             cd /var/www/html/rescue-pat
-            ls -al
+            sudo su
 
-      - name: Remove Github Actions IP From Security Group
-        run: |
-          aws ec2 revoke-security-group-ingress --group-id ${{ secrets.AWS_SG_ID }} --protocol tcp --port 22 --cidr ${{ steps.ip.outputs.ipv4 }}/32
+#      - name: Remove Github Actions IP From Security Group
+#        run: |
+#          aws ec2 revoke-security-group-ingress --group-id ${{ secrets.AWS_SG_ID }} --protocol tcp --port 22 --cidr ${{ steps.ip.outputs.ipv4 }}/32
